@@ -1,4 +1,5 @@
-<form [formGroup]="formQr" (ngSubmit)="onSubmit()">
+
+  <form [formGroup]="formQr" (ngSubmit)="onSubmit()">
     <label for="name">Nombre:</label>
     <input id="name" formControlName="name">
   
@@ -10,5 +11,12 @@
   
     <button type="submit" [disabled]="formQr.invalid">Generar</button>
   </form>
-  
+
+  @if (qrValue) {
+    <div>
+      <qrcode [qrdata]="qrValue" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+      <button (click)="onDownload()"> Descargar </button>
+    </div>
+  }
+ 
   

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.qr_backend.qr_backend_core.model.QrInfo;
+
 @RestController
 @RequestMapping("/api")
 public class ControllerRequest {
@@ -19,9 +21,9 @@ public class ControllerRequest {
 
 
 	    @PostMapping("/data")
-	    public ResponseEntity<String> postData(@RequestBody String requestBody) {
+	    public ResponseEntity<String> postData(@RequestBody QrInfo qrinfo) {
 
-	        return ResponseEntity.ok("Datos recibidos: " + requestBody);
+	        return ResponseEntity.ok("Datos recibidos: " + qrinfo.getNombre() + " " + qrinfo.getEmail() + " " + qrinfo.getDate() );
 	    }
 	
 }
