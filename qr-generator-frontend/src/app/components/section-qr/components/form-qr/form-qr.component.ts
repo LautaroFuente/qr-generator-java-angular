@@ -3,12 +3,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, FormsModule, Validators } 
 import { CommonModule } from '@angular/common';
 import { QRCodeModule } from 'angularx-qrcode';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-form-qr',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, QRCodeModule ],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, QRCodeModule],
   templateUrl: './form-qr.component.html',
   styleUrl: './form-qr.component.css'
 })
@@ -49,7 +49,7 @@ export class FormQRComponent implements OnInit {
       //guardar info
       this.sendGeneratedQR(this.name, this.email, date).subscribe(
         response => console.log("Informacion guardada", response), 
-        error => console.error(`Error ${error}`))
+        error => console.log(`Error`, error))
       this.name = "";
       this.email = "";
     }
@@ -58,6 +58,11 @@ export class FormQRComponent implements OnInit {
   sendGeneratedQR( name: string, email: string, date: Date ) : Observable<any> {
     const url = "http://localhost:8080/api/data";
     const data = {name, email, date};
-    return this.http.post(url,data);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    
+    return this.http.post(url,data, {headers});
   }
 }
