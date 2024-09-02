@@ -46,10 +46,9 @@ export class FormQRComponent implements OnInit {
       link.click();
 
       const date = new Date();
-      //guardar info
       this.sendGeneratedQR(this.name, this.email, date).subscribe(
         response => console.log("Informacion guardada", response), 
-        error => console.log(`Error`, error))
+        error => console.log(`Error`, error));
       this.name = "";
       this.email = "";
     }
@@ -62,7 +61,7 @@ export class FormQRComponent implements OnInit {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    
+
     return this.http.post(url,data, {headers});
   }
 }

@@ -1,1 +1,10 @@
-<p>Lista creados</p>
+<h4>Lista Creados</h4>
+@if (qrList) {
+    <ul>
+        @for (info of qrList; track info.date) {
+            <li>{{ info.name }} {{ info.email }} {{ info.date }}</li>
+            } @empty {
+            <li>There are no items.</li>
+            }
+    </ul>
+  }

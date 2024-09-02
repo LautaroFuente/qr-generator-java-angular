@@ -4,18 +4,18 @@ import java.util.Date;
 
 public class QrInfo {
 
-	private String nombre;
+	private String name;
 	private String email;
 	private Date date;
 	
-	public QrInfo(String nombre, String email, Date date) {
-		this.nombre = nombre;
+	public QrInfo(String name, String email, Date date) {
+		this.name = name;
 		this.email = email;
 		this.date = date;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getName() {
+		return name;
 	}
 
 	public String getEmail() {
@@ -26,8 +26,8 @@ public class QrInfo {
 		return date;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void setEmail(String email) {
