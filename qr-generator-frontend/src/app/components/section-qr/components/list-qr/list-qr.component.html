@@ -4,7 +4,7 @@
         @for (info of qrList; track info.date) {
             <li>{{ info.name }} {{ info.email }} {{ info.date }}</li>
             } @empty {
-            <li>There are no items.</li>
+            <li>No hay QRs generados anteriormente</li>
             }
     </ul>
   }
