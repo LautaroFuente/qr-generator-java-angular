@@ -1,0 +1,15 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 4px rgb(235, 24, 112);
+    border-radius: 4px;
+}
+
+.form-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
