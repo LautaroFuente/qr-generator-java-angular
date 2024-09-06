@@ -1,14 +1,19 @@
 
   <form [formGroup]="formQr" (ngSubmit)="onSubmit()">
-    <label for="name">Nombre:</label>
-    <input id="name" formControlName="name">
-  
-    <label for="email">Email:</label>
-    <input id="email" formControlName="email">
+    <div class="form-row">
+      <label for="name">Nombre:</label>
+      <input id="name" formControlName="name">
+    </div>
 
-    <label for="text"> Texto o Link</label>
-    <input type="text" id="text" formControlName="text">
-  
+    <div class="form-row">
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email">
+    </div>
+
+    <div class="form-row">
+      <label for="text"> Texto o Link</label>
+      <input type="text" id="text" formControlName="text">
+    </div>
     <button type="submit" [disabled]="formQr.invalid">Generar</button>
   </form>
 

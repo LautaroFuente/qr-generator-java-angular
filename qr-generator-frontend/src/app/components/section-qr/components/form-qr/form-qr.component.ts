@@ -52,7 +52,6 @@ export class FormQRComponent implements OnInit {
       link.click();
 
       const date = new Date();
-      //guardar info
       this.sendGeneratedQR(this.name, this.email, date).subscribe(
         (response) => console.log('Informacion guardada', response),
         (error) => console.log(`Error al enviar`, error)
