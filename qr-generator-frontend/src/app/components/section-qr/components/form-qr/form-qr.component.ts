@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  FormsModule,
+  Validators,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { QRCodeModule } from 'angularx-qrcode';
 import { Observable } from 'rxjs';
@@ -10,13 +16,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule, QRCodeModule],
   templateUrl: './form-qr.component.html',
-  styleUrl: './form-qr.component.css'
+  styleUrl: './form-qr.component.css',
 })
 export class FormQRComponent implements OnInit {
   formQr!: FormGroup;
   qrValue: string | null = null;
-  name: string = "";
-  email: string = "";
+  name: string = '';
+  email: string = '';
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
@@ -48,21 +54,22 @@ export class FormQRComponent implements OnInit {
       const date = new Date();
       //guardar info
       this.sendGeneratedQR(this.name, this.email, date).subscribe(
-        response => console.log("Informacion guardada", response), 
-        error => console.log(`Error`, error))
-      this.name = "";
-      this.email = "";
+        (response) => console.log('Informacion guardada', response),
+        (error) => console.log(`Error al enviar`, error)
+      );
+      this.name = '';
+      this.email = '';
     }
   }
 
-  sendGeneratedQR( name: string, email: string, date: Date ) : Observable<any> {
-    const url = "http://localhost:8080/api/data";
-    const data = {name, email, date};
+  sendGeneratedQR(name: string, email: string, date: Date): Observable<any> {
+    const url = 'http://localhost:8080/api/data';
+    const data = { name, email, date };
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     });
-    
-    return this.http.post(url,data, {headers});
+
+    return this.http.post(url, data, { headers });
   }
 }

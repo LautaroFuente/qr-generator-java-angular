@@ -26,8 +26,9 @@ public class ControllerRequest {
 	    @PostMapping("/data")
 	    public ResponseEntity<String> postData(@RequestBody QrInfo qrinfo) {
 
-	        return ResponseEntity.ok("Datos recibidos: " + qrinfo.getNombre() + " " + qrinfo.getEmail() + " " + qrinfo.getDate() );
-	 		//return ResponseEntity.ok("Datos obtenidos correctamente");
+	 		System.out.println("Datos");
+	        //return ResponseEntity.ok("Datos recibidos: " + qrinfo.getNombre() + " " + qrinfo.getEmail() + " " + qrinfo.getDate() );
+	 		return ResponseEntity.ok("Datos obtenidos correctamente");
 	    }
 	
 }
