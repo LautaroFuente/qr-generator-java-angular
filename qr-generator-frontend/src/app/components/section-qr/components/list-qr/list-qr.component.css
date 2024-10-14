@@ -1,6 +1,5 @@
 h3{
     text-align: center;
-    color: rgb(235, 24, 112);
 }
 
 ul{
@@ -11,9 +10,12 @@ ul{
     justify-content: center;
     align-items: center;
     gap: 3px;
+    border: solid 2px #333333;
+    border-radius: 4px;
+    background-color: #d8d8d8;
 }
 
 li{
     margin: 2rem;
-    border-bottom: solid 2px rgb(235, 24, 112);
+    border-bottom: solid 2px #333333;
 }

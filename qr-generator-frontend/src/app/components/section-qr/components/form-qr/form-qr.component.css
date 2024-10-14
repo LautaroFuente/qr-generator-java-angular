@@ -3,8 +3,6 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid 4px rgb(235, 24, 112);
-    border-radius: 4px;
 }
 
 .form-row{
@@ -12,4 +10,13 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.qr-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px #333333;
+    border-radius: 4px;
+    background-color: #d8d8d8;
 }
