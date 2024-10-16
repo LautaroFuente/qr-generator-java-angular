@@ -2,7 +2,7 @@
 @if (qrList) {
     <ul>
         @for (info of qrList; track info.date) {
-            <li>{{ info.name }} {{ info.email }} {{ info.date }}</li>
+            <li>{{ info.name }} | {{ info.email }} | {{ info.date | date: 'yy-MM-dd HH:mm' }}</li>
             } @empty {
             <li>No hay QRs generados anteriormente</li>
             }
