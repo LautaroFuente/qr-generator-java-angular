@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS qr_info_database;
+
+USE qr_info_database;
+
+CREATE TABLE IF NOT EXISTS qr_info (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    date DATE NOT NULL
+);

@@ -62,7 +62,7 @@ export class FormQRComponent implements OnInit {
   }
 
   sendGeneratedQR(name: string, email: string, date: Date): Observable<any> {
-    const url = 'http://localhost:8080/api/data';
+    const url = 'http://backend:8080/api/data';
     const data = { name, email, date };
 
     const headers = new HttpHeaders({

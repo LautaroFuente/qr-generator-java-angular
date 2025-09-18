@@ -7,30 +7,30 @@ import { QrInfo } from '../../../../interfaces/QrInfo.model';
 @Component({
   selector: 'app-list-qr',
   standalone: true,
-  imports: [ CommonModule ],
+  imports: [CommonModule],
   templateUrl: './list-qr.component.html',
-  styleUrl: './list-qr.component.css'
+  styleUrl: './list-qr.component.css',
 })
 export class ListQRComponent implements OnInit {
-
-  qrList : QrInfo[] | null = null; 
+  qrList: QrInfo[] | null = null;
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.getGeneratedQR().subscribe(
-      response => {
-        console.log("Informacion obtenida", response);
+      (response) => {
+        console.log('Informacion obtenida', response);
         this.qrList = response;
-      }, 
-      error => console.log(`Error`, error));  
+      },
+      (error) => console.log(`Error`, error)
+    );
   }
 
-  getGeneratedQR() : Observable<any> {
-    const url = "http://localhost:8080/api/data";
+  getGeneratedQR(): Observable<any> {
+    const url = 'http://backend:8080/api/data';
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     });
 
     return this.http.get(url, { headers });

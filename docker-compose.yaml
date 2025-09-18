@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: qr-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - qr-net
+
+  backend:
+    build: ./qr-generator-backend
+    container_name: qr-backend
+    restart: always
+    depends_on:
+      - db
+    env_file:
+      - ./qr-generator-backend/.env
+    ports:
+      - "8080:8080"
+    networks:
+      - qr-net
+
+  frontend:
+    build: ./qr-generator-frontend
+    container_name: qr-frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "4200:80"
+    networks:
+      - qr-net
+
+networks:
+  qr-net:
