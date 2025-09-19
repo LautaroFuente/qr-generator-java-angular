@@ -16,7 +16,7 @@ RUN npm run build -- --output-path=dist --configuration=production
 FROM nginx:stable-alpine
 
 # Copiar los archivos compilados al directorio de Nginx
-COPY --from=build /app/dist/qr-generator /usr/share/nginx/html/
+COPY --from=build /app/dist/browser /usr/share/nginx/html/
 
 # Exponer el puerto de Nginx
 EXPOSE 80
