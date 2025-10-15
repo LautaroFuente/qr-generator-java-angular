@@ -27,7 +27,7 @@ export class ListQRComponent implements OnInit {
   }
 
   getGeneratedQR(): Observable<any> {
-    const url = 'http://backend:8080/api/data';
+    const url = 'http://localhost:8080/api/data';
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

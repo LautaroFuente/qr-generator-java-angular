@@ -1,10 +1,13 @@
 <h3>Lista Creados</h3>
 @if (qrList) {
-    <ul>
-        @for (info of qrList; track info.date) {
-            <li>{{ info.name }} | {{ info.email }} | {{ info.date | date: 'yy-MM-dd HH:mm' }}</li>
-            } @empty {
-            <li>No hay QRs generados anteriormente</li>
-            }
-    </ul>
+<ul>
+  @for (info of qrList; track info.date) {
+  <li>
+    {{ info.name }} | {{ info.email }} |
+    {{ info.date | date : "dd-MM-yy HH:mm" }}
+  </li>
+  } @empty {
+  <li>No hay QRs generados anteriormente</li>
   }
+</ul>
+}
